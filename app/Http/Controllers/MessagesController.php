@@ -82,4 +82,9 @@ class MessagesController extends Controller
     {
         //
     }
+
+    public function remove(Product $product)
+    {
+        //метода, выводящего пользовательский интерфейс для удаления кортежа
+    }
 }
