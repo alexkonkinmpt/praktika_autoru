@@ -14,12 +14,12 @@ class CreateVehiclesTable extends Migration
     public function up()
     {
         Schema::create('vehicles', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            $table->increments('id');
 
             $table->integer('user_id')->unsigned();
-            /*$table->foreign('user_id')
+            $table->foreign('user_id')
             ->references('id')->on('users')
-            ->onDelete('CASCADE')->onUpdate('RESTRICT');*/
+            ->onDelete('CASCADE')->onUpdate('RESTRICT');
 
             $table->string('vendor', 30);
             $table->string('model', 30);
@@ -34,11 +34,6 @@ class CreateVehiclesTable extends Migration
             $table->integer('type_id')->unsigned();
             $table->foreign('type_id')
             ->references('id')->on('types')
-            ->onDelete('CASCADE')->onUpdate('RESTRICT');
-
-            $table->integer('photo_id')->insigned();
-            $table->foreign('photo_id')
-            ->references('id')->on('photos')
             ->onDelete('CASCADE')->onUpdate('RESTRICT');
 
             $table->timestamps();

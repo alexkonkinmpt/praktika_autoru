@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreatePhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->increments('id')->unique();
+        Schema::create('photos', function (Blueprint $table) {
+            $table->increments('id');
 
             $table->integer('vehicle_id')->unsigned();
             $table->foreign('vehicle_id')
             ->references('id')->on('vehicles')
             ->onDelete('CASCADE')->onUpdate('RESTRICT');
 
-            $table->string('content', 255);
-            $table->rememberToken();
+            $table->string('path', 100);
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('photos');
     }
 }
