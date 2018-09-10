@@ -17,7 +17,7 @@ class MessagesController extends Controller
         //
         // Извлекаем из БД коллекцию товаров,
         // отсортированных по возрастанию значений атрибута title
-        $messages = Message::orderBy('title', 'ASC')->get();
+        $messages = Messages::orderBy('content', 'ASC')->get();
         // Использовать шаблон resources/views/products/index.blade.php, где…
         return view('messages.index')->withMessages($messages);
     }

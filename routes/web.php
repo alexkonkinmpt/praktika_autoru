@@ -46,3 +46,7 @@ Route::resource('vehicles', 'VehiclesController');
 
 Route::get('vehicles/{vehicle}/remove', 'VehiclesController@remove')
      ->name('vehicles.remove');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

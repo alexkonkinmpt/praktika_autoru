@@ -4,7 +4,7 @@
 @extends('base')
 
 {{-- В секции title родительского шаблона будет выведен перевод фразы: Products --}}
-@section('title', __('Messages about this car'))
+@section('content', __('Messages about this car'))
 
 {{-- В секции main родительского шаблона будет выведена форма --}}
 @section('main')
@@ -21,8 +21,7 @@
     <div class="table-responsive">
         <table class="table table-hover table-striped">
             <tr>
-                <th>{{ __('Title') }}</th>
-                <th>{{ __('Price') }}</th>
+                <th>{{ __('Content') }}</th>
                 <th>
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                     </span>
@@ -32,7 +31,7 @@
                     </span>
                 </th>
             </tr>
-            @foreach ($products as $product)
+            @foreach ($messages as $message)
                 <tr>
                     <td>{{ $message->content }}</td>
                     <td>{{ Html::secureLink(
